@@ -47,7 +47,9 @@ router.put('/entries/:id', async (req, res) => {
     }
 });
 
-// Delete entry
+
+
+
 router.delete('/entries/:id', async (req, res) => {
     try {
         await Entry.findByIdAndDelete(req.params.id);
