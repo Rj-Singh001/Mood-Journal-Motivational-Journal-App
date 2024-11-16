@@ -54,11 +54,11 @@ const Journal = ({ setIsAuthenticated }) => {
     const getQuoteByMood = (mood) => {
         switch (mood) {
             case "Happy":
-                return "Believe in yourself!";
+                return "Feel vibe and Believe in yourself!";
             case "Neutral":
-                return "Every day is a fresh start.";
+                return "Looks like its a day of hardwork Every day is a fresh start.";
             case "Sad":
-                return "It's okay to not be okay.";
+                return "Problems is the part of life . It's okay to not be okay.";
             default:
                 return "Stay strong!";
         }
