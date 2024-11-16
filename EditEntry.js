@@ -10,8 +10,8 @@ const EditEntry = ({ entry, fetchEntries, setIsEditing }) => {
         e.preventDefault();
         try {
             await API.put(`/entries/${entry._id}`, { title, content, mood });
-            fetchEntries(); // Fetch updated entries
-            setIsEditing(false); // Close edit mode
+            fetchEntries(); 
+            setIsEditing(false);
         } catch (err) {
             console.error(err.response.data.error);
         }
