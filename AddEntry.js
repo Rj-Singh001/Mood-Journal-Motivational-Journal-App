@@ -11,10 +11,11 @@ const AddEntry = ({ fetchEntries, onMoodChange }) => {
         try {
             const newEntry = { title, content, mood };
             await API.post("/entries", newEntry);
-            fetchEntries(); // Fetch updated entries
-            onMoodChange(mood); // Update quote based on selected mood
-            setTitle(""); // Reset title field
-            setContent(""); // Reset content field
+            fetchEntries(); 
+            onMoodChange(mood); 
+            setTitle("");
+            setContent("");
+            
         } catch (err) {
             console.error(err.response.data.error);
         }
