@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import API from "../api";
 import AddEntry from "./AddEntry";
-import EditEntry from "./EditEntry"; // Import the new EditEntry component
-import Quote from "./Quote"; // Import the Quote component
+import EditEntry from "./EditEntry";
+import Quote from "./Quote"; 
 
 const Journal = ({ setIsAuthenticated }) => {
     const [entries, setEntries] = useState([]);
-    const [isEditing, setIsEditing] = useState(false); // Manage editing state
-    const [selectedEntry, setSelectedEntry] = useState(null); // Store selected entry for editing
+    const [isEditing, setIsEditing] = useState(false); 
+    const [selectedEntry, setSelectedEntry] = useState(null);
     const [filter, setFilter] = useState("");
     const [search, setSearch] = useState("");
-    const [mood, setMood] = useState("Happy"); // Track the mood for quote change
+    const [mood, setMood] = useState("Happy"); 
 
     const fetchEntries = async () => {
         try {
@@ -38,7 +38,7 @@ const Journal = ({ setIsAuthenticated }) => {
     const handleDelete = async (id) => {
         try {
             await API.delete(`/entries/${id}`);
-            fetchEntries(); // Refresh entries after delete
+            fetchEntries(); 
         } catch (err) {
             console.error(err.response.data.error);
         }
@@ -64,14 +64,14 @@ const Journal = ({ setIsAuthenticated }) => {
         }
     };
 
-    // Handle mood change when a new entry is added
+    
     const handleMoodChange = (selectedMood) => {
-        setMood(selectedMood); // Update the quote based on selected mood
+        setMood(selectedMood); 
     };
 
     return (
         <div className="container mx-auto px-4 py-8">
-            {/* Display dynamic quote based on mood */}
+            
             <div className="text-center mb-8">
                 <Quote text={getQuoteByMood(mood)} />
             </div>
