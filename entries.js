@@ -37,15 +37,15 @@ router.get("/", authenticate, async (req, res) => {
     }
 });
 
-// PUT /entries/:id - Update an existing entry
+
 router.put("/:id", authenticate, async (req, res) => {
     const { title, content, mood } = req.body;
     try {
-        // Find the entry by its ID and update
+        
         const updatedEntry = await Entry.findByIdAndUpdate(
             req.params.id, 
             { title, content, mood }, 
-            { new: true } // This will return the updated entry
+            { new: true } 
         );
 
         if (!updatedEntry) {
@@ -58,10 +58,10 @@ router.put("/:id", authenticate, async (req, res) => {
     }
 });
 
-// DELETE /entries/:id - Delete an entry
+
 router.delete("/:id", authenticate, async (req, res) => {
     try {
-        // Find the entry by its ID and delete
+        
         const deletedEntry = await Entry.findByIdAndDelete(req.params.id);
 
         if (!deletedEntry) {
